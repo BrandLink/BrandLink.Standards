@@ -6,7 +6,7 @@ This repository contains the configuration and guidelines for automated linting 
 
 This installation guide assumes that your solution conforms to the following structure: 
 
-``` txt
+``` bash
 solution.sln
 readme.md
 .gitattributes
@@ -44,7 +44,7 @@ git submodule add https://github.com/BrandLink/BrandLink.Standards standards
 
 At this point, you’ll have a **standards** folder inside your project, but if you were to peek inside that folder, depending on your version of Git, you might see… nothing.
 
-Newer versions of Git will do this automatically, but older versions will require you to explicitly tell Git to download the contents of rock:
+Newer versions of Git will do this automatically, but older versions will require you to explicitly tell Git to download the contents of **standards**:
 
 ``` bash
 git submodule update --init --recursive
@@ -99,6 +99,21 @@ Installing via the package manager:
 
 ![stylecop analyzers-via-nuget](images/stylecop-analyzers-via-nuget.png)
 
-Once the Nuget package is installed you will then have to add the configuration files to the **Solution Items** folder you created when installing the .editorconfig file. These files tell StyleCop what rules to enforce.
+Once the Nuget package is installed you will should add the following configuration files to the **Solution Items** folder you created when installing the .editorconfig file so you can easily view the contents. 
+
+- `SixLabors.ruleset`
+- `stylecop.json`
+
+These files tell StyleCop what rules to enforce and will have to be manually added to each project. **right-click > Edit [YOUR_PROJECT_NAME].csproj**
+
+``` xml
+<PropertyGroup>
+  <CodeAnalysisRuleSet>..\..\standards\BrandLink.ruleset</CodeAnalysisRuleSet>
+</PropertyGroup>
+
+<ItemGroup>
+  <AdditionalFiles Include="..\..\standards\stylecop.json" />
+</ItemGroup>
+```
 
 An up-to-date list of which StyleCop rules are implemented and which have code fixes can be found [here](https://dotnetanalyzers.github.io/StyleCopAnalyzers/).

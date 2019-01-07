@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="MyBrand" ToolsVersion="15.0">
+<RuleSet Name="BrandLink" ToolsVersion="15.0">
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
 
     <!--https://github.com/dotnet/roslyn/issues/18117-->

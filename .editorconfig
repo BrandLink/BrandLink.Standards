@@ -87,13 +87,13 @@ csharp_style_var_when_type_is_apparent = true:suggestion
 #Style - language keyword and framework type options
 
 #prefer the language keyword for local variables, method parameters, and class members, instead of the type name, for types that have a keyword to represent them
-dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
+dotnet_style_predefined_type_for_locals_parameters_members = true:warning
 
 #Style - qualification options
 
 #prefer fields to be prefaced with this. in C# or Me. in Visual Basic
-dotnet_style_qualification_for_field = true:suggestion
+dotnet_style_qualification_for_field = true:warning
 #prefer methods to be prefaced with this. in C# or Me. in Visual Basic
-dotnet_style_qualification_for_method = true:suggestion
+dotnet_style_qualification_for_method = true:warning
 #prefer properties to be prefaced with this. in C# or Me. in Visual Basic
-dotnet_style_qualification_for_property = true:suggestion
+dotnet_style_qualification_for_property = true:warning
