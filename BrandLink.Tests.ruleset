@@ -20,5 +20,8 @@
     <!--Call 'ConfigureAwait(false)'-->
     <Rule Id="RCS1090" Action="None" />
 
+    <!--Missing XML comment for publicly visible type or member-->
+    <Rule Id="CS1591" Action="None" />
+
   </Rules>
 </RuleSet>
