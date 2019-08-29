@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="BrandLink" ToolsVersion="15.0">
+<RuleSet Name="BrandLink.Tests" ToolsVersion="15.0">
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
 
     <!--https://github.com/dotnet/roslyn/issues/18117-->
@@ -13,9 +13,12 @@
 
     <!--A C# code file contains more than one unique type.-->
     <Rule Id="SA1402" Action="None" />
-
+    
+    <!--Elements should be documented.-->
+    <Rule Id="SA1600" Action="None" />
+    
     <!--Call 'ConfigureAwait(false)'-->
     <Rule Id="RCS1090" Action="None" />
-    
+
   </Rules>
 </RuleSet>

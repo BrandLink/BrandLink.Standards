@@ -9,7 +9,6 @@ This installation guide assumes that your solution conforms to the following str
 ``` bash
 solution.sln
 readme.md
-.gitattributes
 .gitignore
 +---> src
 +      +
@@ -54,34 +53,40 @@ If everything looks good, you can commit this change and you’ll have a **stand
 
 ### Updating the Submodule. 
 
-Since the submodule is stored in a separate repository you may find at times updates have been made to the linting rules that require you to update your copy. The same command as above will allow you to do so:
+Since the submodule is stored in a separate repository you may find at times updates have been made to the linting rules that require you to update your copy. The command below will allow you to do so:
 
 ``` bash
 git submodule update --init --recursive
+git submodule foreach git pull origin master
 ```
 
 ### Wiring up the Linting Tools
 
-There are two tools contained within the submodule that will help to automatically promote and enforce coding standards and consistancy:
-
-- [editor.config](https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options?view=vs-2017)
+There are three tools contained within the submodule that will help to automatically promote and enforce coding standards and consistancy:
+- [.gitattributes](https://git-scm.com/docs/gitattributes)
+- [.editorconfig](https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options?view=vs-2017)
 - [StyleCop Analyzers](https://github.com/DotNetAnalyzers/StyleCopAnalyzers)
 
-#### Editor Config 
+### Gitattributes
+`.gitattributes` files are used to do things like specify separate merge strategies for individual files or directories in your project, tell Git how to diff non-text files, or have Git filter content before you check it into or out of Git. The default attributes are configured to safely allow cross platform development.
 
-Settings in EditorConfig files enable you to maintain consistent coding styles and settings in a codebase, such as indent style, tab width, end of line characters, encoding, and more, regardless of the editor or IDE you use. For example, when coding in C#, if your codebase has a convention to prefer that indents always consist of five space characters, documents use UTF-8 encoding, and each line always ends with a CR/LF, you can configure an .editorconfig file to do that.
+>**Note: `.gitattributes` relies on a [physical file path hierarchy](https://git-scm.com/docs/gitattributes) to work so after installing or updating the submodule you need to copy the `.gitattributes` file to the solution root before adding to Visual Studio.**
 
-Adding an EditorConfig file to your project or codebase does not convert existing styles to the new ones. For example, if you have indents in your file that are formatted with tabs, and you add an EditorConfig file that indents with spaces, the indent characters are not automatically converted to spaces. However, any new lines of code are formatted according to the EditorConfig file. Additionally, if you format the document using  <kbd>Ctrl+K, Ctrl+E</kbd>), the settings in the EditorConfig file are applied to existing lines of code.
+#### EditorConfig 
 
->**Note: EditorConfig relies on a [physical file path hierarchy](https://editorconfig.org/#file-location) to work so after installing or updating the submodule you need to copy the editor.config file to the solution root before adding to Visual Studio.**
+Settings in `.editorconfig` files enable you to maintain consistent coding styles and settings in a codebase, such as indent style, tab width, end of line characters, encoding, and more, regardless of the editor or IDE you use. For example, when coding in C#, if your codebase has a convention to prefer that indents always consist of five space characters, documents use UTF-8 encoding, and each line always ends with a CR/LF, you can configure an `.editorconfig` file to do that.
 
-To add an EditorConfig file to your solution open the solution in Visual Studio. Select the solution node and right-click.
+Adding an `.editorconfig` file to your project or codebase does not convert existing styles to the new ones. For example, if you have indents in your file that are formatted with tabs, and you add an  `.editorconfig` file that indents with spaces, the indent characters are not automatically converted to spaces. However, any new lines of code are formatted according to the `.editorconfig` file. Additionally, if you format the document using  <kbd>Ctrl+K, Ctrl+E</kbd>), the settings in the `.editorconfig` file are applied to existing lines of code.
+
+>**Note: `.editorconfig` relies on a [physical file path hierarchy](https://editorconfig.org/#file-location) to work so after installing or updating the submodule you need to copy the `.editorconfig` file to the solution root before adding to Visual Studio.**
+
+To add an `.editorconfig` file to your solution open the solution in Visual Studio. Select the solution node and right-click.
 
 From the menu bar, choose **Project > Add Existing Item**, or press <kbd>Shift+Alt+A</kbd>.
 
-The Add Existing Item dialog box opens. Use this to navigate to your new **standards** folder and select the .editorconfig file.
+The Add Existing Item dialog box opens. Use this to navigate to your new **standards** folder and select the `.editorconfig` file.
 
-An .editorconfig file appears in Solution Explorer, and it opens in the editor.
+An `.editorconfig` file appears in Solution Explorer, and it opens in the editor.
 
 ![EditorConfig file in solution explorer.](images/editorconfig-in-solution-explorer.png)
 
@@ -101,14 +106,16 @@ Installing via the package manager:
 
 ![stylecop analyzers-via-nuget](images/stylecop-analyzers-via-nuget.png)
 
-Once the Nuget package is installed you will should add the following configuration files to the **Solution Items** folder you created when installing the .editorconfig file so you can easily view the contents. 
+Once the Nuget package is installed you will should add the following configuration files to the **Solution Items** folder you created when installing the `.editorconfig` file so you can easily view the contents. 
 
-- `SixLabors.ruleset`
+- `BrandLink.ruleset`
+- `BrandLink.Tests.ruleset`
 - `stylecop.json`
 
 These files tell StyleCop what rules to enforce and will have to be manually added to each project. **right-click > Edit [YOUR_PROJECT_NAME].csproj**
 
 ``` xml
+<!--Use the 'BrandLink.Tests.ruleset' for your test projects-->
 <PropertyGroup>
   <CodeAnalysisRuleSet>..\..\standards\BrandLink.ruleset</CodeAnalysisRuleSet>
 </PropertyGroup>
