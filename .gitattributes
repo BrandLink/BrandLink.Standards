@@ -95,6 +95,10 @@
 *.png               binary
 *.ttf               binary
 *.snk               binary
+*.eot               binary
+*.ttf               binary
+*.woff              binary
+*.woff2             binary
 
 ###############################################################################
 # Set explicit file behavior to:
@@ -106,3 +110,4 @@
 *.pdf               diff=astextplain
 *.pptx              diff=astextplain
 *.rtf               diff=astextplain
+*.svg               diff=astextplain
