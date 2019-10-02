@@ -99,6 +99,10 @@
 *.ttf               binary
 *.woff              binary
 *.woff2             binary
+*.xls               binary
+*.xlsx              binary
+*.ppt               binary
+*.pptx              binary
 
 ###############################################################################
 # Set explicit file behavior to:
