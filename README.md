@@ -90,6 +90,20 @@ An `.editorconfig` file appears in Solution Explorer, and it opens in the editor
 
 ![EditorConfig file in solution explorer.](images/editorconfig-in-solution-explorer.png)
 
+Add the following to your src .csproj file to ensure that the `.editorconfig` and `.gitattributes` files are automatically copied into the solution root.
+
+```xml
+  <ItemGroup>
+    <!--Shared config files that have to exist at root level.-->
+    <ConfigFilesToCopy Include="..\..\standards\.editorconfig;..\..\standards\.gitattributes" />
+  </ItemGroup>
+
+  <!--Ensures our config files are up to date.-->
+  <Target Name="CopyFiles" BeforeTargets="Build">
+    <Copy SourceFiles="@(ConfigFilesToCopy)" DestinationFolder="..\..\" />
+  </Target>
+```
+
 #### StyleCop Analyzers
 
 StyleCop Analyzers are Roslyn Analyzer that contain an implementation of the StyleCop rules using the .NET Compiler Platform. Where possible, code fixes are also provided to simplify the process of correcting violations.
