@@ -122,16 +122,16 @@ Installing via the package manager:
 
 Once the Nuget package is installed you will should add the following configuration files to the **Solution Items** folder you created when installing the `.editorconfig` file so you can easily view the contents. 
 
-- `BrandLink.ruleset`
-- `BrandLink.Tests.ruleset`
+- `brandlink.ruleset`
+- `brandlink.tests.ruleset`
 - `stylecop.json`
 
 These files tell StyleCop what rules to enforce and will have to be manually added to each project. **right-click > Edit [YOUR_PROJECT_NAME].csproj**
 
 ``` xml
-<!--Use the 'BrandLink.Tests.ruleset' for your test projects-->
+<!--Use the 'brandlink.tests.ruleset' for your test projects-->
 <PropertyGroup>
-  <CodeAnalysisRuleSet>..\..\standards\BrandLink.ruleset</CodeAnalysisRuleSet>
+  <CodeAnalysisRuleSet>..\..\standards\brandlink.ruleset</CodeAnalysisRuleSet>
 </PropertyGroup>
 
 <ItemGroup>
