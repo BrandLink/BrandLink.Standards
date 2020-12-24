@@ -70,7 +70,7 @@ indent_style = tab
 ##########################################
 
 # [*.{cs,csx,cake,vb,vbx,tt,ttinclude}]
-file_header_template = Copyright (c) Six Labors.\nLicensed under the Apache License, Version 2.0.
+file_header_template = Copyright (c) BrandLink Pty. Ltd.
 
 # SA1636: File header copyright text should match
 # Justification: .editorconfig supports file headers. If this is changed to a value other than "none", a stylecop.json file will need to added to the project.
