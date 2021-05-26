@@ -140,3 +140,4 @@ These files tell StyleCop what rules to enforce and will have to be manually add
 ```
 
 An up-to-date list of which StyleCop rules are implemented and which have code fixes can be found [here](https://dotnetanalyzers.github.io/StyleCopAnalyzers/).
+

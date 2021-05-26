@@ -4,7 +4,6 @@
 #   normalize to Unix-style line endings
 ###############################################################################
 *           text        eol=lf
-
 ###############################################################################
 # Set explicit file behavior to:
 #   treat as text and
@@ -15,6 +14,7 @@
 *.clj               text        eol=lf
 *.cmd               text        eol=lf
 *.cpp               text        eol=lf
+*.cshtml            text        eol=lf
 *.css               text        eol=lf
 *.cxx               text        eol=lf
 *.config            text        eol=lf
@@ -54,7 +54,6 @@
 *.txt               text        eol=lf
 *.vb                text        eol=lf
 *.yml               text        eol=lf
-
 ###############################################################################
 # Set explicit file behavior to:
 #   treat as text
@@ -62,7 +61,6 @@
 #   diff as csharp
 ###############################################################################
 *.cs                text        eol=lf          diff=csharp
-
 ###############################################################################
 # Set explicit file behavior to:
 #   treat as text
@@ -74,7 +72,6 @@
 *.fsproj            text        eol=lf          merge=union
 *.ncrunchproject    text        eol=lf          merge=union
 *.vbproj            text        eol=lf          merge=union
-
 ###############################################################################
 # Set explicit file behavior to:
 #   treat as text
