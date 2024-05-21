@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="BrandLink" ToolsVersion="16.0">
   <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
-    <Rule Id="IDE0056" Action="None" />
-    <Rule Id="IDE0057" Action="None" />
-    <Rule Id="IDE0058" Action="Info" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.NetAnalyzers" RuleNamespace="Microsoft.CodeAnalysis.CSharp.NetAnalyzers">
+    <Rule Id="CA1069" Action="None" />
+    <Rule Id="CA1200" Action="None" />
+    <Rule Id="CA1711" Action="None" />
+    <Rule Id="CA1716" Action="None" />
+    <Rule Id="CA1720" Action="None" />
   </Rules>
   <Rules AnalyzerId="Roslynator.CSharp.Analyzers" RuleNamespace="Roslynator.CSharp">
     <Rule Id="RCS1090" Action="None" />
+    <Rule Id="RCS1154" Action="None" />
+    <Rule Id="RCS1161" Action="None" />
+    <Rule Id="RCS1181" Action="None" />
+    <Rule Id="RCS1234" Action="None" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <Rule Id="SA1200" Action="None" />
     <Rule Id="SA1402" Action="None" />
     <Rule Id="SA1413" Action="None" />
+    <Rule Id="SA1519" Action="None" />
     <Rule Id="SA1629" Action="None" />
   </Rules>
 </RuleSet>
